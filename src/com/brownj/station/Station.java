@@ -11,35 +11,59 @@ import java.util.function.Function;
 public class Station {
     enum STATION_STATUS {OPEN, CLOSED};
 
-    private final String stationName;
-    private boolean status;
+    private int stationID;
+    private String stationName;
+    private String status;
+    private boolean hubStation;
+    private boolean mainStation;
 
-    protected Station(String stationName){
-        this.stationName = stationName;
-        this.status = false;
+    protected int getStationID(){
+        return this.stationID;
     }
 
-    protected void openStation(){
-         this.status = true;
-    }
-
-    protected void closeStation(){
-         this.status = false;
-    }
-    
     protected String getStationStatus(){
-       if(status) return STATION_STATUS.OPEN.toString();
-
-       return STATION_STATUS.CLOSED.toString();
+        return this.status;
     }
 
     protected boolean isHubStation(){
-        return false;
+        return hubStation;
+    }
+
+    protected boolean isMainStation(){
+        return mainStation;
+    }
+
+    protected void setStationID(int id){
+        this.stationID = id;
+    }
+
+    protected void setStationName(String name){
+        this.stationName = name;
+    }
+
+    protected void setStationStatus(String status){
+        if(status.equals("OPEN")){
+            this.status = STATION_STATUS.OPEN.toString();
+        } else {
+            this.status = STATION_STATUS.CLOSED.toString();
+        }
+    }
+
+    protected void setHubStation(String value){
+        this.hubStation = value.equals("true");
+    }
+    protected void setMainStation(String value){
+        this.mainStation = value.equals("true");
     }
 
     @Override
     public String toString(){
-        return new String(stationName.toUpperCase());
+        String s = "EMPTY";
+        if(this.stationName != null) {
+            s = new String(this.stationName);
+        }
+
+        return s;
     }
 
 }//End class

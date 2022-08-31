@@ -1,3 +1,8 @@
+/**
+ *  Created by: James R. Brown
+ *  Sodor train project
+ */
+
 package com.brownj.route;
 
 import com.brownj.station.Station;
