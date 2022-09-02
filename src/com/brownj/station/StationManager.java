@@ -65,12 +65,12 @@ public class StationManager {
             + " WHERE " + COLUMN_HUB_STATIONS_NAME + " == ?";
 
     // Update fuel values
-    public static final String UPDATE_MAIN_LEVELS = "UPDATE " + TABLE_MAIN_STATIONS
-            + " SET ? = ? "
+    public static final String UPDATE_MAIN_FUEL_LEVELS = "UPDATE " + TABLE_MAIN_STATIONS
+            + " SET "+ COLUMN_MAIN_STATIONS_FUEL + " = ? "
             + " WHERE " + COLUMN_MAIN_STATIONS_ID + " == ?";
 
-    public static final String UPDATE_HUB_LEVELS = "UPDATE " + TABLE_HUB_STATIONS
-            + " SET ? = ? "
+    public static final String UPDATE_HUB_FUEL_LEVELS = "UPDATE " + TABLE_HUB_STATIONS
+            + " SET " + COLUMN_HUB_STATIONS_FUEL + " = ? "
             + " WHERE " + COLUMN_HUB_STATIONS_ID + " == ?";
 
     private Connection conn;
@@ -93,8 +93,8 @@ public class StationManager {
             queryStationName = conn.prepareStatement(QUERY_STATION_BY_NAME);
             queryMainStationName = conn.prepareStatement(QUERY_MAIN_BY_NAME);
             queryHubStationName = conn.prepareStatement(QUERY_HUB_BY_NAME);
-            updateMainLevels = conn.prepareStatement(UPDATE_MAIN_LEVELS);
-            updateHubLevels = conn.prepareStatement(UPDATE_HUB_LEVELS);
+            updateMainLevels = conn.prepareStatement(UPDATE_MAIN_FUEL_LEVELS);
+            updateHubLevels = conn.prepareStatement(UPDATE_HUB_FUEL_LEVELS);
 
             return true;
         } catch(SQLException se){
