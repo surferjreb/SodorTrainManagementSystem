@@ -14,8 +14,6 @@ public class Station {
     private int stationID;
     private String stationName;
     private String status;
-    private boolean hubStation;
-    private boolean mainStation;
 
     protected int getStationID(){
         return this.stationID;
@@ -23,14 +21,6 @@ public class Station {
 
     protected String getStationStatus(){
         return this.status;
-    }
-
-    protected boolean isHubStation(){
-        return hubStation;
-    }
-
-    protected boolean isMainStation(){
-        return mainStation;
     }
 
     protected void setStationID(int id){
@@ -47,13 +37,6 @@ public class Station {
         } else {
             this.status = STATION_STATUS.CLOSED.toString();
         }
-    }
-
-    protected void setHubStation(String value){
-        this.hubStation = value.equals("true");
-    }
-    protected void setMainStation(String value){
-        this.mainStation = value.equals("true");
     }
 
     @Override
