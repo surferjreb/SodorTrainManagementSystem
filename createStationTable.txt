@@ -1,2 +1,7 @@
 CREATE TABLE Stations IF NOT EXIST
+VALUES ( "stationID" INTEGER,
+         "stationName" TEXT NOT NULL,
+         "status" TEXT NOT NULL,
+         PRIMARY KEY("stationID" AUTOINCREMENT)
+);
 
